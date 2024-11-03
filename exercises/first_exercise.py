@@ -1,7 +1,7 @@
 import requests
 from typing import TypeVar, Type, List
 
-from constants import USERS_URL, POSTS_URL, TODOS_URL, COMMENTS_URL
+from constants import USERS_URL, POSTS_URL, TODOS_URL, COMMENTS_URL, API_KEY
 from models import User, Post, ToDo, Comment
 
 def create_users() -> list[User]:
@@ -65,8 +65,14 @@ def create_comments() -> list[Comment]:
 
 T = TypeVar('T')
 
-def create_element(url: str, element_type: Type[T]) -> List[T]:
-    response = requests.get(url)
+def create_elements(url: str, element_type: Type[T]) -> List[T]:
+    
+    headers = {
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json"
+    }
+
+    response = requests.get(url, headers=headers)
 
     if response.status_code != 200:
         raise RuntimeError(f"Something went wrong. Status code: {response.status_code}")
@@ -74,8 +80,9 @@ def create_element(url: str, element_type: Type[T]) -> List[T]:
     elements: List[T] = [element_type(item) for item in response.json()]
 
     print(f"***Example for {element_type.__name__}***")
-    print(elements[0])
-    print()
+    for element in elements:
+        print(element)
+        print()
 
 def first_exercise() -> None:
     """
@@ -101,9 +108,9 @@ def first_exercise() -> None:
     Disdantage:
         - harder to adapt if we need to do also other specific things for specific elements
     """
-    create_element(USERS_URL, User)
-    create_element(POSTS_URL, Post)
-    create_element(TODOS_URL, ToDo)
-    create_element(COMMENTS_URL, Comment)
+    create_elements(USERS_URL, User)
+    create_elements(POSTS_URL, Post)
+    create_elements(TODOS_URL, ToDo)
+    create_elements(COMMENTS_URL, Comment)
 
 

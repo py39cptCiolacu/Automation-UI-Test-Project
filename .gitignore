@@ -1,2 +1,3 @@
 requests
 __pycache__
+*.env

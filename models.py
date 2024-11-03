@@ -18,6 +18,17 @@ class User:
                 """
         return textwrap.dedent(user_text).strip()
     
+    def user_as_dict(self) -> dict:
+        user_dict = {
+            "id": self.id,
+            "name": self.name,
+            "email": self.email,
+            "gender": self.gender,
+            "status": self.status
+        }
+
+        return user_dict
+    
 class Post:
     def __init__(self, info):
         self.id = info["id"]
