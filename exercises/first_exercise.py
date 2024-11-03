@@ -50,6 +50,10 @@ def create_todos() -> list[ToDo]:
 
 
 def create_comments() -> list[Comment]:
+    """
+    This function takes the first page of entries from the desired element
+    and convert them in objects + displaying the first one
+    """
     comments_response = requests.get(COMMENTS_URL)
 
     if comments_response.status_code != 200:

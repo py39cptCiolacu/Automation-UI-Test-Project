@@ -1,4 +1,7 @@
+import requests
 import textwrap
+
+from constants import API_KEY, USERS_URL
 
 class User:
     def __init__(self, info: dict):
@@ -28,6 +31,28 @@ class User:
         }
 
         return user_dict
+    
+    def get_user_id_by_name(name: str) -> int:
+        """
+        This function return the id of the first user with the passed name
+        * Multiple results might be possible, because name is not unique - but email is unique which makes it a better seach solution
+        """
+        header = {
+            "Authorization" : f"Bearer {API_KEY}"
+        }
+
+        user = requests.get(USERS_URL, params = {"name": name}, headers=header)
+
+        if user.status_code != 200:
+            raise RuntimeError(f"The GET request was not succesful. Status code: {user.status_code}")
+
+        if len(user.json()) <= 0:
+            raise ValueError(f"{name} was not found")
+        
+        user_id = user.json()[0]["id"]
+
+        return user_id
+    
     
 class Post:
     def __init__(self, info):

@@ -5,7 +5,9 @@ from constants import USERS_URL, API_KEY
 
 
 def add_new_user(name: str, email: str, gender: str, status: str) -> User:
-
+    """
+    This could be part of User Class and everytime a new user is added, the coresponding object is created
+    """
     headers = {
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json"
