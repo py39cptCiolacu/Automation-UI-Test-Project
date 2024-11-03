@@ -1,12 +1,12 @@
 import textwrap
 
 class User:
-    def __init__(self, info):
-        self.id = info["id"]
-        self.name = info["name"]
-        self.email = info["email"]
-        self.gender = info["gender"]
-        self.status = info["status"]
+    def __init__(self, info: dict):
+        self.id: str = info["id"]
+        self.name: str = info["name"]
+        self.email: str = info["email"]
+        self.gender: str = info["gender"]
+        self.status: str = info["status"]
 
     def __str__(self):
         user_text = f"""

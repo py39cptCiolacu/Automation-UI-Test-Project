@@ -11,7 +11,7 @@ def create_users() -> list[User]:
         raise RuntimeError(f"Something went wrong. Status code: {users_response.status_code}")
 
     users: list[User] = [User(user_response) for user_response in users_response.json()]
-        
+
     print("***Example for USER***")
     print(users[2])
     print()
@@ -69,7 +69,6 @@ def create_elements(url: str, element_type: Type[T]) -> List[T]:
     
     headers = {
         "Authorization": f"Bearer {API_KEY}",
-        "Content-Type": "application/json"
     }
 
     response = requests.get(url, headers=headers)
