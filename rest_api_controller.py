@@ -6,7 +6,6 @@ from constants import API_KEY
 class RestApiController:
 
     def __init__(self, base_url: str, auth: dict = None):
-        # TODO: id needed add also the endpoint as an input by user
         self.base_url = base_url
         self.headers = self.__create_header()
         self.auth = auth

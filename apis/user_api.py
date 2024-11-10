@@ -76,3 +76,19 @@ class UserApi:
 
         users = self.controller.get(self.endpoint, params = {"status": status, "page": 1, "per_page": number_of_users})
         return users.json()
+
+    def get_users_with_middle_name(self, number_of_users: int) -> list[dict]:
+        users: list[dict] = self.controller.get(endpoint=self.endpoint).json()
+
+        users_with_middle_name = []
+        for user in users:
+            user_name: str = user.get("name")
+            if len(user_name.split()) >= 3:
+                users_with_middle_name.append(user)
+            else:
+                continue
+
+            if len(users_with_middle_name) == number_of_users:
+                break
+
+        return users_with_middle_name
