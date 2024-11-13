@@ -5,7 +5,7 @@ from constants import COMMON_URL
 def third_exercise() -> None:
     user_api = UserApi(COMMON_URL)
 
-    random_user = UserModel.user_model_without_id(
+    random_user = UserModel.model_without_id(
         name="Random User", email="email99@email.bu", gender="male", status="inactive"
     )
 

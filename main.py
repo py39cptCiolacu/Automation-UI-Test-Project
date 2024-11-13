@@ -4,6 +4,7 @@ from exercises.fourth_exercise import fourth_exercise
 from exercises.fourth_exercise import fourth_exercise
 from exercises.fifth_exercise import fifth_exercise
 from exercises.sixth_exercise import sixth_exercise
+from exercises.seventh_exercise import seventh_exercise
 
 if __name__ == "__main__":
     # first_exercise()
@@ -11,4 +12,5 @@ if __name__ == "__main__":
     # third_exercise()
     # fourth_exercise()
     # fifth_exercise()
-    sixth_exercise()
+    # sixth_exercise()
+    seventh_exercise()
