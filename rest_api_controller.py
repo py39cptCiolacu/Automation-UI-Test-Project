@@ -50,7 +50,7 @@ class RestApiController:
             return response
         except requests.exceptions.RequestException as e:
             print(f"POST request failed: {e}")
-            return None
+            # return None
 
     def put(
         self,

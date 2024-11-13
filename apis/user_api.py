@@ -46,7 +46,7 @@ class UserApi:
             },
         )
 
-        if not response.ok:
+        if response is None:
             print("POST request failed. User was not added")
             return
 

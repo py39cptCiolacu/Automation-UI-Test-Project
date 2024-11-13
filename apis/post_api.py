@@ -27,7 +27,7 @@ class PostApi:
             },
         )
 
-        if not response.ok:
+        if response is None:
             print("POST request failed. Post was not added")
             return
         
@@ -36,8 +36,6 @@ class PostApi:
         
     def check_post_by_id(self, id: str) -> bool:
         response = self.controller.get(self.endpoint, params = {"id": id})
-
-        print(type(response.json()))
     
         if response.json() is None:
             return False

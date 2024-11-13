@@ -28,8 +28,7 @@ class CommentApi:
                 "body": comment.body
             }
         )
-
-        if not response.ok:
+        if response is None:
             print("POST request failed. Comment was not added")
             return
 

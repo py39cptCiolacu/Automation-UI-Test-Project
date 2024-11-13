@@ -29,7 +29,7 @@ class ToDoApi:
             },
         )
 
-        if not response.ok:
+        if response is None:
             print("POST request failed. ToDo was not added")
             return
 
