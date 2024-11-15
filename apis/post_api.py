@@ -8,14 +8,14 @@ class PostApi:
         self.endpoint = "/posts"
 
     def get_first_page_of_posts(self) -> list[dict]:
-        return self.controller.get(self.endpoint)
+        return self.controller.get(self.endpoint).json()
 
     def add_post(self, post: PostModel) -> None:
         """
         This function will add a new post
         """
         user_api = UserApi(self.controller.base_url)
-        if not user_api.check_user_by_id(post.user_id):
+        if not user_api.__check_user_by_id(post.user_id):
             return
 
         response = self.controller.post(

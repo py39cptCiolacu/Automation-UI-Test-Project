@@ -9,7 +9,7 @@ class CommentApi:
         self.endpoint = "/comments"
 
     def get_first_page_of_comments(self) -> list[dict]:
-        return self.controller.get(self.endpoint)
+        return self.controller.get(self.endpoint).json()
     
     def add_comment(self, comment: CommentModel) -> None:
         """

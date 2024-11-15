@@ -9,14 +9,14 @@ class ToDoApi:
         self.endpoint = "/todos"
 
     def get_first_page_of_todos(self) -> list[dict]:
-        return self.controller.get(self.endpoint)
+        return self.controller.get(self.endpoint).json()
 
     def add_todo(self, todo: ToDoModel) -> None:
         """
         This function will add a new ToDo
         """
         user_api = UserApi(self.controller.base_url)
-        if not user_api.check_user_by_id(todo.user_id):
+        if not user_api.__check_user_by_id(todo.user_id):
             return
 
         response = self.controller.post(
