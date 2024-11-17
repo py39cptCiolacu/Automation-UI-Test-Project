@@ -8,8 +8,9 @@ class ToDoApi:
         self.controller = RestApiController(base_url, auth)
         self.endpoint = "/todos"
 
-    def get_first_page_of_todos(self) -> list[dict]:
-        return self.controller.get(self.endpoint).json()
+    def get_first_page_of_todos(self, per_page: int) -> list[dict]:
+        # TODO: make this return X todos
+        return self.controller.get(self.endpoint, params={"per_page": per_page}).json()
 
     def add_todo(self, todo: ToDoModel) -> None:
         """
