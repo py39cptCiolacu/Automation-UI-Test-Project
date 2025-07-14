@@ -77,3 +77,7 @@ Fetched the first 20 todos and displayed them in ascending order based on their 
 
 ```bash
 pip install -r requirements.txt
+
+2. Run tests
+```bash
+pytest
