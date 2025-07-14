@@ -64,7 +64,7 @@ Fetched the first 20 todos and displayed them in ascending order based on their 
 
 ## 🧰 Tech Stack
 
-- Python 3.x
+- Python 3
 - [pytest](https://docs.pytest.org/)
 - [requests](https://docs.python-requests.org/)
 - [Playwright](https://playwright.dev/python/)
